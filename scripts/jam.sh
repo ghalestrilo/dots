@@ -6,6 +6,7 @@ folder="$1"
 tmux new-session -s jam "zsh -c \"nvim $JAM_PATH\""                                \; \
   new-window sclang                                                                \; \
   new-window 'cninjam 143.110.158.146:2049 -user anonymous:ghales -jack'           \; \
+  new-window 'ghci -ghci-script $TIDAL_BOOT_PATH'           \; \
   new-window 'fluidsynth "$HOME/soundfonts/Chrono Trigger.sf2" --connect-jack-outputs' \; \
   select-window -t 0
 

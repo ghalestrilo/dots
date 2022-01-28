@@ -5,7 +5,3 @@
   - ["if ! command -v nvm ; then curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash; fi", Installing NVM]
   - ["if ! command -v node ; then nvm install node; fi", Installing node]
   - source ~/.bashrc # update path to get nvm
-  # - [sudo apt-get install -y nodejs, Installing NodeJS]
-  # - [sudo apt-get install -y npm, Installing npm]
-  # - [sudo apt-get install -y yarnpkg, Installing yarn]
-  - ["if ! command -v dockly ; then npm i -g -y dockly; fi",                 Installing Dockly]

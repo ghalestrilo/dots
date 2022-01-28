@@ -1,4 +1,4 @@
-
+- clean: ['~/.config/SuperCollider/']
 
 # Linking Dotfiles
 - link:
@@ -31,7 +31,7 @@
       path: common/kakrc
       create: true
       force: true
-    ~/.config/init.vim:
+    ~/.config/nvim/init.vim:
       path: common/init.vim
       force: true
     ~/.config/MuseScore/MuseScore2.ini:
@@ -51,10 +51,9 @@
         create: true
         force: true
         path: regolith/steam-controller-config
-    ~/.config/SuperCollider:
-      path: common/supercollider/*
-      glob: true
-      force: true
+    ~/.config/SuperCollider/startup.scd: common/supercollider/startup.scd
+    ~/.config/SuperCollider/cycles.scd: common/supercollider/cycles.scd
+    ~/.config/SuperCollider/fluidsynth.scd: common/supercollider/fluidsynth.scd
     # Folder Shortcuts
     ~/screcs: ~/.local/share/SuperCollider/Recordings
     ~/dirtsamples: ~/.local/share/SuperCollider/downloaded-quarks/Dirt-Samples

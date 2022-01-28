@@ -9,7 +9,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
-ZSH_THEME="lalis"
+# ZSH_THEME="lalis"
 
 alias python=python3
 alias pip=pip3
@@ -78,8 +78,8 @@ plugins=(
   # npm
   # nvm
   # react-native
-  sudo
-  themes
+  # sudo
+  # themes
   tmux
   z
   zsh-syntax-highlighting
@@ -132,7 +132,7 @@ export SC_REC_DIR="$HOME/.local/share/SuperCollider/Recordings/"
 # export TIDAL_BOOT_PATH="$HOME/git/dots/tidal/boot.tidal"
 export TIDAL_BOOT_PATH="/home/tidal/boot.tidal"
 
-# Record Screen (Video only)
+# Record Screen (Vdeo only)
 alias rec="ffmpeg -video_size 3840x2160 -framerate 25 -f x11grab -i :0.0 output.mp4"
 
 alias recs="cd $SC_REC_DIR"
@@ -148,10 +148,6 @@ alias short='xdg-open https://trello.com/b/xYvCoiBo/short'
 alias config="codium ~/git/dots"
 
 alias ff="~/.cabal/bin/feedforward 2> ~/err.txt"
-
-# lol
-alias killdiablo='wine "C:/Games/Diablo II/Diablo II.exe"'
-alias cheatdiablo='wine "C:/Games/Diablo II/Diablo II.exe" -nosave'
 
 if [ -d $HOME/.config/broot ]; then
 	source $HOME/.config/broot/launcher/bash/br
@@ -172,12 +168,7 @@ alias devjam="tmux new-session -s jam \
   select-window -t 0"
 
 # Run a Tidal Jam
-alias jam="jack_control start && \
-  tmux new-session -s jam 'zsh -c \"kak ~/art/test.tidal\"'                             \; \
-  new-window sclang                                                          \; \
-  new-window 'cninjam jam.miniestereo.org:2049 -user anonymous:ghales -jack' \; \
-  select-window -t 0 \
-  && jack_control exit"
+alias jam="$HOME/git/dots/scripts/jam.sh"
 
 # Dev a seg jam (WIP)
 segjam(){
@@ -202,7 +193,10 @@ export PATH="$PATH:~/.local/bin"
 
 alias bat=batcat
 alias lg=lazygit
+alias tidal="ghci -ghci-script $TIDAL_BOOT_PATH"
 
 # source /home/ghales/.config/broot/launcher/bash/br
 export LD_LIBRARY_PATH=/usr/lib/cuda/lib64:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/lib/cuda/include:$LD_LIBRARY_PATH
+
+eval "$(starship init zsh)"

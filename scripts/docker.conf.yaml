@@ -6,3 +6,5 @@
   - [sudo systemctl enable docker, Enabling docker module]
   - [sudo usermod -aG docker \$(whoami), Adding self to docker group]
   - [sudo apt-get install -y docker-compose, Installing docker-compose]
+  - [curl -sSf https://moncho.github.io/dry/dryup.sh | sudo sh, Installing dry]
+  - [sudo chmod 755 /usr/local/bin/dry, Updating dry permissions]

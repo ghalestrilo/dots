@@ -31,10 +31,12 @@ eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 # if [ $(hostname) = 'llipuru' ]; then
   # export QT_SCREEN_SCALE_FACTORS=2 
 # fi 
-source "$HOME/.cargo/env"
+if [ -d "$HOME/.cargo" ] ; then
+    fi
 
 # Automatically added by Aspen
 export PATH="/home/ghales/.aspen/bin:$PATH"
 export LD_LIBRARY_PATH=/usr/lib/cuda/lib64:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/lib/cuda/include:$LD_LIBRARY_PATH
 
+. "$HOME/.cargo/env"

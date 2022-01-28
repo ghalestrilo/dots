@@ -9,3 +9,4 @@ script:
 
 i3unglitch:
 	rm ~/.Xresources-regolith ~/.config/regolith/i3/config
+

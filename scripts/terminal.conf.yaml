@@ -1,14 +1,24 @@
 # Installing Terminal Tools
 - shell:
-  - ["if ! command -v alacritty ; then sudo apt-get install -y alacritty; fi", Installing alacritty]
+  - ["if ! command -v alacritty ; then sudo add-apt-repository ppa:mmstick76/alacritty -y ; sudo apt-get update ; sudo apt-get install -y alacritty ; fi", Installing alacritty]
   - ["if ! command -v alacritty ; then gsettings set org.gnome.desktop.default-applications.terminal exec alacritty; fi", Making Alacritty the default terminal]
   - "if command -v alacritty ; then sudo update-alternatives --set x-terminal-emulator $(which alacritty); fi"
-
+  - ["if ! command -v kitty; sudo apt-get install -y kitty; fi", Installing kitty]
+  - ["gsettings set org.gnome.desktop.default-applications.terminal exec kitty", Making kitty the default terminal]
+  - "sudo update-alternatives --set x-terminal-emulator $(which kitty)"
+  - [sudo apt install -y zsh, Installing zsh]
+  - [sh -c "$(curl -fsSL https://starship.rs/install.sh)", Installing starship]
 
 # ZSH Plugins
 - shell:
   - ["git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting", Installing zsh-syntax-highlighting]
   - ["git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions",         Installing zsh-autosuggestions]
+
+# Rust + code-minimap (for nvim)
+- shell:
+  - ["curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh", Installing rustup]
+  - ["cargo update", Updating cargo]
+  - ["cargo install code-minimap", Installing code-minimap]
 
 # Docker
 - shell:
@@ -16,8 +26,8 @@
   - [sudo apt-get install -y docker.io, Installing Docker]
   - [sudo systemctl start docker, Starting docker engine]
   - [sudo systemctl enable docker, Enabling docker module]
-  - [sudo usermod -aG docker \$(whoami), Adding self to docker group]
+  - [sudo usermod -aG docker $(whoami), Adding self to docker group]
   - [sudo apt-get install -y docker-compose, Installing docker-compose]
   # - [sudo apt-get install -y syncthing, Installing Syncthing]
-  - [sudo apt-get install -y leiningen, Installing leiningen]
+  # - [sudo apt-get install -y leiningen, Installing leiningen]
   # - [snap install insomnia, Installing Insomnia]

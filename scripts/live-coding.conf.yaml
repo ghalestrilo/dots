@@ -4,13 +4,16 @@
   # - [sudo apt-get install -y gocode jq, Installing Kak requirements]
   # - [go get goimports gogetdoc, Installing Kak requirements]
   - [sudo apt-get install -y tmux, Installing tmux]
-  # - [sudo apt-get install -y sc3-plugins, Installing SC3 Plugins]
+  - [sudo apt-get install -y supercollider, Installing supercollider]
+  - [sudo apt-get install -y sc3-plugins, Installing SC3 Plugins]
   - [sudo apt-get install -y fluidsynth, Installing FluidSynth]
   - [sudo apt-get install -y haskell-platform, Installing Haskell (ghc, ghci)]
   - [sudo apt-get install -y cabal-install, Installing Cabal]
+  - [sudo apt-get install -y alsa-utils, Install alsa-utils (amidi, aplay)]
+  - [sudo apt-get install -y sonobus, Install sonobus]
   - [cabal update, Updating Cabal]
   - [cabal install tidal, Installing Tidal]
   - ["if [ ! -d ~/git/libtidal ]; then git clone https://github.com/ghalestrilo/libtidal && mv libtidal ~/git; fi", Cloning LibTidal]
-  - ["sudo ln -s ~/git/libtidal /home/tidal", Cloning LibTidal]  
+  - ["if [ ! -e /home/tidal ]; then sudo ln -s ~/git/libtidal /home/tidal; fi", Cloning LibTidal]  
 
 

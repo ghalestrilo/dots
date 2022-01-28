@@ -1,132 +1,56 @@
-- shell: make bootstrap
-
-# # Preparing i3 config file
-# - shell:
-#   # Create Gen Folder
-#   - mkdir -p data/gen/i3
-#   - mkdir -p ~/.config/i3
-#   # Prep i3 Config File
-#   - cat /etc/i3/config > data/gen/i3/config
-#   # - cat data/i3/config >> data/gen/i3/config
-#   - cat data/i3/keyboard >> data/gen/i3/config
-#   # Generating .Xresources
-#   - cat data/common/.Xresources > data/gen/.Xresources
-#   - cat data/llipuru/xdpi >> data/gen/.Xresources
-#   - cat data/llipuru/xfontsize >> data/gen/.Xresources
-#   # Enable Docker
-#   - systemctl enable docker
-#   # Update system
-#   # - sudo pacman -Syu
-#   # Set default web browser
-#   - sudo xdg-settings set default-web-browser brave.desktop
-#   # Install basecamp
-#   # - wget "https://github.com/arturock/basecamp-linux/releases/download/v0.1.2/basecamp-0.1.2-linux-x64.tar.xz"
-#   # Set timezone
-#   - timedatectl set-timezone America/Sao_Paulo
-
-
-# common: Configure zsh
-# - shell:
-#   # Configure Oh-My_Zsh
-#   # - sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-#   # Change Shell to zsh
-#   - sudo chsh -s $(which zsh) lalis
-
-# common: Run syncthing on background
-# - shell:
-#   - systemctl enable syncthing@lalis.service
-#   # - systemctl enable syncthing@$(whoami).service # TODO: automatic username
-
-# common: Set github account
-# - shell:
-#   - git config --global user.name "ghalestrilo"
-#   - git config --global user.name "ghales.trilo@gmail.com"
-
-# llipuru: Graphics Card Stuff
-# - shell:
-#   # - systemctl stop bumblebeed
-#   # - systemctl disable bumblebeed
-#   # - systemctl enable optimus-manager
-#   # - systemctl start optimus-manager
-#   # - optimus-manager --switch nvidia --no-confirm
-#   # - optimus-manager --set-startup nvidia --no-confirm
-
-# common: Audio configuration
-# - shell:
-#   # Pipe Alsa through Jack
-#   # Add lalis to pro audio groups
-#   - sudo usermod -a -G audio lalis
-#   - sudo usermod -a -G realtime lalis
-#   # Copy asound.conf since it does not wish to link
-#   - sudo cp data/common/asound.conf /etc
-
-
-
-# Wallpaper
-# - shell:
-#   - wget -o data/gen/wallp.jpg https://images.wallpaperscraft.com/image/starry_sky_night_stars_115042_3840x2400.jpg
+# - shell: make bootstrap
 
 - clean: ['~']
 
-- clean: ['~/.local/share/SuperCollider/downloaded-quarks/Dirt-Samples']
+- clean: ['~/.local/share/supercollider/downloaded-quarks/dirt-samples']
 
-# Linking Dotfiles
+# linking dotfiles
 - link:
     ~/.profile:
       force: true
-      path: data/llipuru/.profile
-    # ~/.config/i3/config: data/gen/i3/config
-    ~/.oh-my-zsh/themes/lalis.zsh-theme: data/lalis.zsh-theme
-    ~/.taskrc: data/.taskrc
+      path: llipuru/.profile
+    ~/.oh-my-zsh/themes/lalis.zsh-theme: lalis.zsh-theme
+    ~/.taskrc: .taskrc
     ~/.zshrc:
-      path: data/.zshrc
+      path: .zshrc
       force: true
-    ~/.urxvt/ext/font-size:
-      create: true
-      path: data/common/font-size
     ~/.config/alacritty/alacritty.yml:
       create: true
-      path: data/common/alacritty.yml
+      path: common/alacritty.yml
     ~/.config/kak/kakrc:
-      path: data/kakrc
+      path: kakrc
       create: true
-    ~/.config/init.vim: data/init.vim
-    ~/.config/MuseScore/MuseScore2.ini: data/MuseScore2.ini
-    ~/.config/MuseScore/MuseScore3.ini: data/common/MuseScore3.ini
-    ~/.config/SuperCollider:
+    ~/.config/init.vim: init.vim
+    ~/.config/musescore/musescore2.ini: musescore2.ini
+    ~/.config/musescore/musescore3.ini: common/musescore3.ini
+    ~/.config/supercollider:
       glob: true
       force: true
-      path: data/supercollider/*
-    ~/.local/share/SuperCollider/downloaded-quarks/Dirt-Samples: # Tidal Samples
+      path: supercollider/*
+    ~/.local/share/supercollider/downloaded-quarks/dirt-samples: # tidal samples
       glob: true
       path: ~/samples/*
-    ~/.config/VSCodium/User:
+    ~/.config/vscodium/user:
       glob: true
       force: true
-      path: data/code/*
-    /usr/bin/basecamp: /home/lalis/Downloads/basecamp-linux-x64/basecamp
-    # ~/start_jack.sh: data/common/start_jack.sh
-    ~/.profile: data/common/.profile # FUCKING MULTILANGUAGE KEYBOARD CONFIG BULLSHIT
-    # ~/.Xresources:
+      path: code/*
+    # /usr/bin/basecamp: /home/lalis/downloads/basecamp-linux-x64/basecamp
+    # ~/start_jack.sh: common/start_jack.sh
+    ~/.profile: common/.profile # fucking multilanguage keyboard config bullshit
+    # ~/.xresources:
       # relink:
-      # path: data/llipuru/.Xresources
+      # path: llipuru/.xresources
     ~/.config/tidal/boot.tidal:
       create: true
-      path: data/tidal/boot.tidal
+      path: tidal/boot.tidal
     ~/.config/fontconfig/conf.d/01-emoji.conf:
       create: true
-      path: data/common/01-emoji.conf
+      path: common/01-emoji.conf
     ~/.config/zathura/zathurarc:
       create: true
-      path: data/common/zathurarc
-    ~/.gradle/gradle.properties: data/common/ribon.gradle.properties
+      path: common/zathurarc
+    ~/.config/starship.toml: common/starship.toml
+    ~/.gradle/gradle.properties: common/ribon.gradle.properties
     # /etc/asound.conf:
-    #   path: data/common/asound.conf
+    #   path: common/asound.conf
     #   force: true
-
-
-# FIXME: Don't apply i3 currently, because it's breaking
-# - clean: ['~/.config/i3']
-- shell:
-  # - rm ~/.config/i3/config
-  - i3-msg reload
