@@ -183,13 +183,14 @@ segjam(){
 }
 
 export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:~/.local/bin"
 export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="$PATH:~/.local/bin"
+export JAM_PATH="$HOME/git/pieces"
 
 alias bat=batcat
 alias lg=lazygit
@@ -200,3 +201,5 @@ export LD_LIBRARY_PATH=/usr/lib/cuda/lib64:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/lib/cuda/include:$LD_LIBRARY_PATH
 
 eval "$(starship init zsh)"
+
+source /home/ghales/.config/broot/launcher/bash/br

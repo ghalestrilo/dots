@@ -13,13 +13,15 @@ Plug 'elixir-editors/vim-elixir'
 "Plug 'w0rp/ale'                 "Linting
 "Plug 'junegunn/goyo.vim'        "Focus Mode
 "Plug 'junegunn/limelight.vim'   "Block-Scoped Highlighting
+Plug 'ayu-theme/ayu-vim'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 "--------------------------------- IDE
 Plug 'tpope/vim-projectionist' "Configure this to allow :A between code <-> test
 Plug 'vim-test/vim-test'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-"Plug 'bling/vim-bufferline'
+Plug 'bling/vim-bufferline'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
@@ -108,17 +110,24 @@ nmap <silent> <leader>g :TestVisit<CR>
 nmap <leader>qf  <Plug>(coc-fix-current)
 nmap <F2> <Plug>(coc-rename)
 let g:coc_status_warning_sign='>'
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <C-f> <Plug>(coc-format-selected)
 
 "Personal/Navigation
 nnoremap <leader><Up>    :bfirst<CR>
 nnoremap <leader><Left>  :bprev<CR>
 nnoremap <leader><Right> :bnext<CR>
 nnoremap <leader><Down>  :blast<CR>
-
+nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>f :Rg<CR>
 
 "Show tabs on top
-"let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#buffer_nr_show = 1
 
 "Tidal Config
@@ -141,6 +150,9 @@ au BufRead,BufNewFile *.tidal set ft=tidal
 set hidden
 set nowrap
 set number
+set termguicolors
 colorscheme bubblegum
+let ayucolor="mirage"
 let g:airline_theme='bubblegum'
+colorscheme ayu
 set clipboard=unnamedplus

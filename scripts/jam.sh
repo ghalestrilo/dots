@@ -3,11 +3,11 @@
 folder="$1"
 
 # Run a Tidal Jam
-tmux new-session -s jam "zsh -c \"nvim $JAM_PATH\""                                \; \
+tmux new-session -s jam "cd $JAM_PATH ;  zsh -c \"nvim\""                                \; \
   new-window sclang                                                                \; \
   new-window 'cninjam 143.110.158.146:2049 -user anonymous:ghales -jack'           \; \
   new-window 'ghci -ghci-script $TIDAL_BOOT_PATH'           \; \
-  new-window 'fluidsynth "$HOME/soundfonts/Chrono Trigger.sf2" --connect-jack-outputs' \; \
+  new-window 'cd ~/soundfonts && fluidsynth "$HOME/soundfonts/Chrono Trigger.sf2" --connect-jack-outputs' \; \
   select-window -t 0
 
 
