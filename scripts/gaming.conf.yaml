@@ -9,5 +9,5 @@
 # Steam Stuff (https://steamcommunity.com/app/221410/discussions/0/1693795812304458372/)
 - shell:
   - sudo chmod 666 /dev/uinput
-  - sudo apt-get install python3-autopilot
+  - sudo apt-get install python3-autopilot -y
   - sudo udevadm trigger
