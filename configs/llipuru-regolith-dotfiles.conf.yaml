@@ -67,7 +67,8 @@
       force: true
     ~/.tmux.conf:
       path: common/tmux.conf
-
+    #~/.config/dunst/dunstrc: common/dunstrc
+    #~/.config/regolith/i3/config: common/i3config
 
 # Clone Kakoune Plugin Manager
 - shell:
