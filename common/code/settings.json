@@ -1,12 +1,8 @@
 {
   "window.menuBarVisibility": "toggle",
-  "terminal.integrated.shell.windows": "C:\\Windows\\Sysnative\\cmd.exe",
   "terminal.integrated.fontSize": 14,
   "workbench.statusBar.visible": false,
   "workbench.activityBar.visible": true,
-  // "editor.fontFamily": "Connection Regular",
-  // "editor.fontFamily": "Telegrama Raw",    
-  // "editor.insertSpaces": false,
   "editor.renderWhitespace": "boundary",
   "editor.renderIndentGuides": false,
   "files.exclude": {
@@ -23,7 +19,7 @@
     "**/.svn": true,
     "**/.hg": true,
     "**/.o": true,
-    "**/CVS": true,
+    "**/CVS": true
   },
   "search.exclude": {
     "**/node_modules": true,
@@ -39,15 +35,12 @@
     "**/venv/**": true,
     "env-*": true
   },
-  "haskell.hlint.ignore": [
-    "Redundant bracket",
-    "Use fromMaybe"
-  ],
+  "haskell.hlint.ignore": ["Redundant bracket", "Use fromMaybe"],
   "files.associations": {
     "*.tidal": "haskell",
     "*.krb": "python",
     "**/.i3/config": "i3",
-    "**/i3/config": "i3",
+    "**/i3/config": "i3"
   },
   "tidalcycles.bootTidalPath": "/home/lalis/.config/tidal/boot.tidal",
   "terminal.integrated.fontFamily": "monospace",
@@ -81,34 +74,61 @@
     },
     {
       "text": "FIXME:",
-      "color": "#000",
+      "color": "#000"
     },
     {
       "text": "IDEA:",
       "color": "#000",
-      "backgroundColor": "cyan",
+      "backgroundColor": "cyan"
     },
     {
       "text": "TODO:", // TODO:
       "color": "#000",
-      "backgroundColor": "yellow",
-      //other styling properties goes here ... 
+      "backgroundColor": "yellow"
+      //other styling properties goes here ...
     }
   ],
-  "telemetry.enableTelemetry": false,
   "editor.formatOnSave": true,
   "zenMode.centerLayout": false,
-  "workbench.colorTheme": "Dracula",
   "flow.showUncovered": true,
   "flow.coverageSeverity": "warn",
   "terminal.external.linuxExec": "alacritty",
   "flow.useBundledFlow": false,
   "flow.pathToFlow": "",
-"workbench.sideBar.location": "right",
-"workbench.startupEditor": "newUntitledFile",
-"latex.server.autoDownload": true,
-"hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W3tcIm5hbWVcIjpcIkhhc2tsaWdcIn1dLFwibGlicmFyaWVzXCI6XCJnZW5lcmFsXCIsXCJjdXN0b21MaWJyYXJpZXNcIjpbXCJMLnNjcmF0Y2hwYWRcIl0sXCJwbHVnaW5zXCI6W10sXCJyZWNlbnRDb2xvcnNcIjpbXCIwMDAwMDBcIixcIm5vbmVcIixcIjA1MDUwNVwiXSxcImZvcm1hdFdpZHRoXCI6XCIyNDBcIixcImNyZWF0ZVRhcmdldFwiOmZhbHNlLFwicGFnZUZvcm1hdFwiOntcInhcIjowLFwieVwiOjAsXCJ3aWR0aFwiOjg1MCxcImhlaWdodFwiOjExMDB9LFwic2VhcmNoXCI6dHJ1ZSxcInNob3dTdGFydFNjcmVlblwiOnRydWUsXCJncmlkQ29sb3JcIjpcIiNkMGQwZDBcIixcImRhcmtHcmlkQ29sb3JcIjpcIiM2ZTZlNmVcIixcImF1dG9zYXZlXCI6dHJ1ZSxcInJlc2l6ZUltYWdlc1wiOm51bGwsXCJvcGVuQ291bnRlclwiOjAsXCJ2ZXJzaW9uXCI6MTgsXCJ1bml0XCI6MSxcImlzUnVsZXJPblwiOmZhbHNlLFwidWlcIjpcIlwifSJ9",
-"workbench.editor.untitled.hint": "hidden",
-"calva.paredit.defaultKeyMap": "original",
-"window.zoomLevel": -1,
+  "workbench.sideBar.location": "right",
+  "workbench.startupEditor": "newUntitledFile",
+  "latex.server.autoDownload": true,
+  "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W3tcIm5hbWVcIjpcIkhhc2tsaWdcIn1dLFwibGlicmFyaWVzXCI6XCJnZW5lcmFsXCIsXCJjdXN0b21MaWJyYXJpZXNcIjpbXCJMLnNjcmF0Y2hwYWRcIl0sXCJwbHVnaW5zXCI6W10sXCJyZWNlbnRDb2xvcnNcIjpbXCIwMDAwMDBcIixcIm5vbmVcIixcIjA1MDUwNVwiXSxcImZvcm1hdFdpZHRoXCI6XCIyNDBcIixcImNyZWF0ZVRhcmdldFwiOmZhbHNlLFwicGFnZUZvcm1hdFwiOntcInhcIjowLFwieVwiOjAsXCJ3aWR0aFwiOjg1MCxcImhlaWdodFwiOjExMDB9LFwic2VhcmNoXCI6dHJ1ZSxcInNob3dTdGFydFNjcmVlblwiOnRydWUsXCJncmlkQ29sb3JcIjpcIiNkMGQwZDBcIixcImRhcmtHcmlkQ29sb3JcIjpcIiM2ZTZlNmVcIixcImF1dG9zYXZlXCI6dHJ1ZSxcInJlc2l6ZUltYWdlc1wiOm51bGwsXCJvcGVuQ291bnRlclwiOjAsXCJ2ZXJzaW9uXCI6MTgsXCJ1bml0XCI6MSxcImlzUnVsZXJPblwiOmZhbHNlLFwidWlcIjpcIlwifSJ9",
+  "workbench.editor.untitled.hint": "hidden",
+  "calva.paredit.defaultKeyMap": "original",
+  "workbench.iconTheme": "material-icon-theme",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.colorTheme": "Noctis Minimus",
+  "git.confirmSync": false,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "elixir.credo.ignoreWarningMessages": true,
+  "haskell.manageHLS": "GHCup",
+  "window.zoomLevel": -1,
+  "emmet.includeLanguages": {
+    "html-eex": "html",
+    "elixir": "html"
+  },
+  "emmet.triggerExpansionOnTab": true,
+  "elixirLS.fetchDeps": false
 }

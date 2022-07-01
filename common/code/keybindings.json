@@ -78,19 +78,45 @@
   {
     "key": "ctrl+shift+e",
     "command": "-workbench.view.explorer"
-},
-{
+  },
+  {
     "key": "ctrl+'",
     "command": "workbench.action.terminal.toggleTerminal"
-},
-{
+  },
+  {
     "key": "ctrl+shift+[BracketLeft]",
     "command": "workbench.actions.view.problems"
-},
-{
+  },
+  {
     "key": "ctrl+shift+m",
     "command": "-workbench.actions.view.problems"
-}
+  },
+  {
+    "key": "ctrl+k k",
+    "command": "bookmarks.toggle",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+alt+k",
+    "command": "-bookmarks.toggle",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+k l",
+    "command": "bookmarks.toggleLabeled"
+  },
+  {
+    "key": "ctrl+k a",
+    "command": "bookmarks.listFromAllFiles"
+  },
+  {
+    "key": "ctrl+k g",
+    "command": "git-graph.view"
+  },
+  {
+    "key": "ctrl+k j",
+    "command": "workbench.action.positionPanelBottom"
+  }
   // - editor.action.transformToLowercase
   // - editor.action.transformToUppercase
 ]

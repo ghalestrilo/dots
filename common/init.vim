@@ -73,6 +73,10 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 " todo: add autocmd: install coc-lists coc-eslint coc-prettier coc-elixir etc...
 
+
+" Ignore ctrlp
+"let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
 " Test coc-snippets
 " Use <C-l> for trigger snippet expand.
 imap <C-l> <Plug>(coc-snippets-expand)

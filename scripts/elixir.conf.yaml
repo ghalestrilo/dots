@@ -1,5 +1,6 @@
 - shell:
   # - [if ! command -v brew; then , check for linuxbrew installation]
   - [brew install elixir, Installing elixir]
+  - [brew install asdf, Installing asdf]
   # - [wget https://packages.erlang-solutions.com/erlang-solutions_2.0_all.deb, Downloading erlang]
   # - [sudo apt-get install -y elixir, Installing elixir]

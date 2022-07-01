@@ -80,6 +80,7 @@ plugins=(
   # react-native
   # sudo
   # themes
+  asdf
   tmux
   z
   zsh-syntax-highlighting
@@ -203,3 +204,4 @@ export LD_LIBRARY_PATH=/usr/lib/cuda/include:$LD_LIBRARY_PATH
 eval "$(starship init zsh)"
 
 source /home/ghales/.config/broot/launcher/bash/br
+source /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.sh
