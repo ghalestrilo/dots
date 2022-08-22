@@ -170,6 +170,8 @@ alias devjam="tmux new-session -s jam \
 
 # Run a Tidal Jam
 alias jam="$HOME/git/dots/scripts/jam.sh"
+alias uplearn="$HOME/git/dots/scripts/uplearn.sh"
+alias versodev="$HOME/git/dots/scripts/versodev.sh"
 
 # Dev a seg jam (WIP)
 segjam(){
@@ -196,6 +198,8 @@ export JAM_PATH="$HOME/git/pieces"
 alias bat=batcat
 alias lg=lazygit
 alias tidal="ghci -ghci-script $TIDAL_BOOT_PATH"
+alias resolutionreset="xrandr --output eDP-1 --mode 1920x1080"
+resolutionreset
 
 # source /home/ghales/.config/broot/launcher/bash/br
 export LD_LIBRARY_PATH=/usr/lib/cuda/lib64:$LD_LIBRARY_PATH
@@ -205,3 +209,11 @@ eval "$(starship init zsh)"
 
 source /home/ghales/.config/broot/launcher/bash/br
 source /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.sh
+
+# bun completions
+[ -s "/home/ghales/.bun/_bun" ] && source "/home/ghales/.bun/_bun"
+
+# bun
+export BUN_INSTALL="/home/ghales/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+alias heroku=~/Downloads/heroku/bin/heroku
