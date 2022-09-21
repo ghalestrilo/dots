@@ -115,3 +115,6 @@ source /Users/admin/.config/broot/launcher/bash/br
 alias updbdev="cloud_sql_proxy -instances=\"up-learn-v1:europe-west1:dev-db\"=tcp:localhost:8006"
 alias updbprod="cloud_sql_proxy -instances=\"up-learn-v1:europe-west1:prod\"=tcp:localhost:8007"
 . /usr/local/etc/profile.d/z.sh
+
+alias tidal="stack exec ghci -- -ghci-script $TIDAL_BOOT_PATH"
+alias sclang="/Applications/SuperCollider.app/Contents/MacOS/sclang"

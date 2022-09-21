@@ -12,9 +12,10 @@ MIDIIn.connectAll;
 	// Send Slots: Control what virtual (tidal) modules will be sent cc to
 
 s.waitForBoot {
-    ~device = MIDIOut.findPort("Elektron Model:Cycles", "Elektron Model:Cycles MIDI 1");
+    ~device = MIDIOut.findPort("TR8S", "TR8S CTRL");
     if (~device != nil, {
       (
+        "Setting up input from TR8S midi"
         ~deviceid = ~device.uid;
         
         ~send_slots = [];
