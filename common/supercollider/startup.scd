@@ -7,8 +7,9 @@ s.options.memSize = 8192 * 16;
 s.options.numBuffers = 1024 * 16;
 s.options.maxNodes = 1024 * 64;
 
-s.options.numOutputBusChannels = 0;
-s.options.numInputBusChannels = 0;
+s.options.numOutputBusChannels = 2;
+s.options.numInputBusChannels = 2;
+s.options.device = "BlackHole 2ch";
 
 // Debug msgs
 o = OSCFunc({ |msg| ("msg: " + msg).postln; }, '/play', s.addr);
@@ -18,15 +19,16 @@ o = OSCFunc({ |msg| ("msg: " + msg).postln; }, '/play', s.addr);
 
 (
 ~synths =
-  [ [\reface, "reface CP", "reface CP MIDI 1"]
-  , [\onyx, "Onyx Producer 2-2", "Onyx Producer 2-2 MIDI 1"]
-  , [\mm, "MicroMonsta", "MicroMonsta MIDI 1"]
-  , [\tr, "TR-8S", "TR-8S"]
-  , [\trcc, "TR-8S", "TR-8S CTRL"]
-  , [\axo, "Axoloti Core", "Axoloti Core MIDI 1"]
-  , [\mxd1, "minilogue xd", "minilogue xd MIDI 1"]
-  , [\mxd2, "minilogue xd", "minilogue xd MIDI 2"]
-  , [\mc, "Elektron Model:Cycles", "Elektron Model:Cycles MIDI 1"]
+  [ [\reface, "reface CP", "reface CP MIDI 1", "Bus 2"]
+  , [\mm, "MicroMonsta", "MicroMonsta MIDI 1", "Bus 3"]
+  , [\tr, "TR-8S", "TR-8S", "Bus 4"]
+  , [\trcc, "TR-8S", "TR-8S CTRL", "Bus 5"]
+  , [\mc, "Elektron Model:Cycles", "Elektron Model:Cycles MIDI 1", "Bus 6"]
+  // , [\onyx, "Onyx Producer 2-2", "Onyx Producer 2-2 MIDI 1", "Bus 1"]
+  // , [\axo, "Axoloti Core", "Axoloti Core MIDI 1", "Bus 1"]
+  // , [\mxd1, "minilogue xd", "minilogue xd MIDI 1", "Bus 1"]
+  // , [\mxd2, "minilogue xd", "minilogue xd MIDI 2", "Bus 1"]
+  , [\loopback, "LOOPBACK", "Bus 1", "Bus 1"]
   ];
 );
 
@@ -35,10 +37,11 @@ s.waitForBoot {
   ~dirt = SuperDirt(2, s);
   s.sync;
     ~dirt.start(57120, [0]);
-  MIDIClient.init;
+	MIDIClient.init( verbose: true );
 
   // Function for safely declaring midi devices to tidal
-  ~tidalMidiOut = { |tidal_name, device_name, channel_name|
+  ~tidalMidiOut = { |tidal_name, device_name, channel_name, bypass_bus_name|
+    ~dirt.soundLibrary.addMIDI(tidal_name, MIDIOut.newByName("LOOPBACK", "Bus 2").latency = 0.04);
     if (MIDIOut.findPort(device_name, channel_name) != nil, {
       ("Connecting" + tidal_name).postln;
       ~dirt.soundLibrary.addMIDI(tidal_name, MIDIOut.newByName(device_name, channel_name).latency = 0.04);
@@ -60,6 +63,7 @@ s.waitForBoot {
         });
       });
   );
+
   [MIDIOut.findPort("TR-8S", "TR-8S CTRL"), MIDIOut.findPort("TR-8S", "TR-8S")].do({ |device|
     if (device != nil, {
       (
@@ -67,7 +71,7 @@ s.waitForBoot {
         ~deviceid = device.uid;
 
         ~deviceid.postln;
-        
+
         ~send_slots = [];
         ~cycles_kbd_offset = 1 - 52;
         MIDIFunc.cc({ |val,num,chan,src|
