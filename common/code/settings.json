@@ -130,7 +130,8 @@
   "emmet.triggerExpansionOnTab": true,
   "elixirLS.fetchDeps": false,
   "editor.guides.indentation": false,
-  "workbench.colorTheme": "Noctis Obscuro",
+  "workbench.colorTheme": "Noctis",
   "tidalcycles.useStackGhci": true,
+  "terminal.integrated.enableMultiLinePasteWarning": false,
   "window.zoomLevel": -1
 }
