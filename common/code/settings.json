@@ -133,5 +133,5 @@
   "workbench.colorTheme": "Noctis",
   "tidalcycles.useStackGhci": true,
   "terminal.integrated.enableMultiLinePasteWarning": false,
-  "window.zoomLevel": -1
+  "window.zoomLevel": -2
 }

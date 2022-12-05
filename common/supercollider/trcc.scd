@@ -1,47 +1,66 @@
 MIDIIn.connectAll;
+~send_slots = [0];
+~device = MIDIIn.findPort("TR-8S", "TR-8S");
+// ~device = MIDIIn.findPort("TR-8S", "TR-8S CTRL");
+// [MIDIIn.findPort("TR-8S", "TR-8S")].do({ |device| MIDIIn.connect(0, ~device); });
 
-~mod1 = 15;
-~mod2 = 16;
+// ~device.postln;
 
-~action = {  };
-~section = {  };
-~section = {  };
+if(~device != nil, {
+  ~tidalctrl = NetAddr.new("localhost", 6010);
 
+  ~tidalSendValue = { |key, value|
+    ~dest = ["tr", key].join("_");
+    ~tidalctrl.sendMsg("/ctrl", ~dest, value);
+    // [~dest, " = ", value].join(" ").postln;
+  };
 
-	// Send knobs to tidal slots
-	// Send Slots: Control what virtual (tidal) modules will be sent cc to
+  MIDIFunc.cc({ |val,num,chan,src|
+    // [val,num,chan,src].postln;
+    ~param = num;
+    // ~send = [9,71];
+    ~send = (~param == 9).or(~param == 71);
+    // ~send.includes(~param).postln;
+    if(~send, {
+      if(~param == 9, {~param = "shuffle"});
+      if(~param == 71, {~param = "accent"});
+      ~tidalSendValue.value(~param, val);
+    })
+  });
 
-// s.waitForBoot {
-//     ~device = MIDIOut.findPort("TR8S", "TR8S CTRL");
-//     if (~device != nil, {
-//       (
-//         "Setting up input from TR8S midi"
-//         ~deviceid = ~device.uid;
-        
-//         ~send_slots = [];
-//         ~cycles_kbd_offset = 1 - 52;
-//         MIDIFunc.cc({ |val,num,chan,src|
-//           [val, num, chan, src].join(" ").postln;
-//           if(src == ~deviceid, {
-//             ~send_slots.do({ |slotnum|
-//               ~dest = ["slot", slotnum, num].join("_");
-//               ~tidalctrl.sendMsg("/ctrl", ~dest, val);
-//               [~dest, " = ", val].postln; // TODO: If Debug
-//             });
-//           });
-//         });
-//         MIDIFunc.noteOn( { |val,num,chan,src|
-//           if(src == ~deviceid, {
-//             // ("pushing"   + num).postln;
-//             ~send_slots = (~send_slots ++ [~cycles_kbd_offset + num]).as(Set).as(Array).sort;
-//           });
-//         });
-//         MIDIFunc.noteOff( { |val,num,chan,src|
-//           if(src == ~deviceid, {
-//             // ("pushing"   + num).postln;
-//             ~send_slots = ~send_slots.replace(~cycles_kbd_offset + num, nil).as(Set).as(Array).sort;
-//           });
-//         });
-//       );
-// 		});
-// }
+  MIDIFunc.sysex({ |val,src|
+    // [val,src].postln;
+    ~param = val[11];
+    ~val = val[12..15];
+    // ~ignore = [54,59];
+    // ~send = [65,16,57];
+    // ~send = (~param == 65).or(~param == 16).or(~param == 57);
+
+    // ~send.includes(~param).postln;
+
+    // if(~send.includes(~param), {
+
+    // section = 65
+    if(~param == 65, {
+      ~param = "section";
+      if(~val[1] == 1, { ~val = "a" });
+      if(~val[1] == 2, { ~val = "b" });
+      if(~val[1] == 4, { ~val = "c" });
+      if(~val[1] == 8, { ~val = "d" });
+      if(~val[0] == 1, { ~val = "e" });
+      if(~val[0] == 2, { ~val = "f" });
+      if(~val[0] == 4, { ~val = "g" });
+      if(~val[0] == 8, { ~val = "h" });
+      ~tidalSendValue.value(~param, ~val);
+    });
+
+    // tempo = 16 / 57
+    if((~param == 16).or(~param == 57), {
+      // ~val.postln;
+      ~param = "tempo";
+      ~val = ~val[1]*16 + ~val[2]*16 + ~val[3];
+      ~tidalSendValue.value(~param, ~val);
+    });
+
+  });
+});
