@@ -14,6 +14,9 @@
     ~/.zshrc:
       path: .zshrc
       force: true
+    ~/.config/fish/config.fish:
+      path: ./config.fish 
+      force: true
     ~/.config/alacritty/alacritty.yml:
       create: true
       path: common/alacritty.yml

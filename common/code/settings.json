@@ -3,6 +3,7 @@
   "terminal.integrated.fontSize": 14,
   "workbench.statusBar.visible": false,
   "workbench.activityBar.visible": true,
+  "terminal.integrated.tabs.enabled": false,
   "editor.renderWhitespace": "boundary",
   "files.exclude": {
     "**/.git": true,
@@ -57,6 +58,7 @@
   "gitlens.statusBar.enabled": false,
   "eslint.format.enable": true,
   "telemetry.enableTelemetry": false,
+  "telemetry.telemetryLevel": "off",
   /*
   "bracket-pair-colorizer-2.colors": [
     "#222233"
@@ -102,25 +104,7 @@
   "workbench.editor.untitled.hint": "hidden",
   "calva.paredit.defaultKeyMap": "original",
   "workbench.iconTheme": "material-icon-theme",
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "git.confirmSync": false,
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "elixir.credo.ignoreWarningMessages": true,
   "haskell.manageHLS": "GHCup",
   "emmet.includeLanguages": {
@@ -128,8 +112,16 @@
     "elixir": "html"
   },
   "emmet.triggerExpansionOnTab": true,
-  "elixirLS.fetchDeps": false,
-  "workbench.colorTheme": "Noctis Minimus",
+  "elixirLS.enableTestLenses": true,
+  "elixirLS.fetchDeps": true,
+  "elixirLS.mixEnv": "dev",
   "editor.guides.indentation": false,
-  "window.zoomLevel": -1
+  "[phoenix-heex]": {
+    "editor.defaultFormatter": "JakeBecker.elixir-ls"
+  },
+  "phpcs.executablePath": "/Users/ghales/.composer/vendor/squizlabs/php_codesniffer/bin/phpcs",
+  "editor.minimap.renderCharacters": false,
+  "window.zoomLevel": -1,
+  "rainbow-highlighter.use-border": true,
+  "workbench.colorTheme": "Gruvbox Dark Hard"
 }
