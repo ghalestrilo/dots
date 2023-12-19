@@ -93,7 +93,7 @@ source /Users/admin/.config/broot/launcher/bash/br
 
 alias updbdev="cloud_sql_proxy -instances=\"up-learn-v1:europe-west1:dev-db\"=tcp:localhost:8006"
 alias updbprod="cloud_sql_proxy -instances=\"up-learn-v1:europe-west1:prod\"=tcp:localhost:8007"
-. /opt/homebrew/Cellar/z/1.9/etc/profile.d/z.sh
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+# . /opt/homebrew/Cellar/z/1.9/etc/profile.d/z.sh
+# . /opt/homebrew/opt/asdf/libexec/asdf.sh
 eval "$(starship init zsh)"
 source /Users/ghales/.config/broot/launcher/bash/br

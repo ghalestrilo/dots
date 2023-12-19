@@ -1,9 +1,7 @@
 {
   "window.menuBarVisibility": "toggle",
   "terminal.integrated.fontSize": 14,
-  "workbench.statusBar.visible": false,
   "workbench.activityBar.visible": true,
-  "terminal.integrated.tabs.enabled": false,
   "editor.renderWhitespace": "boundary",
   "files.exclude": {
     "**/.git": true,
@@ -121,7 +119,26 @@
   },
   "phpcs.executablePath": "/Users/ghales/.composer/vendor/squizlabs/php_codesniffer/bin/phpcs",
   "editor.minimap.renderCharacters": false,
-  "window.zoomLevel": -1,
   "rainbow-highlighter.use-border": true,
-  "workbench.colorTheme": "Gruvbox Dark Hard"
+  "workbench.colorTheme": "Gruvbox Dark Medium",
+  "terminal.integrated.defaultProfile.osx": "fish",
+  "terminal.integrated.allowChords": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "editor.accessibilitySupport": "off",
+  "files.eol": "\r\n",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "window.zoomLevel": -2
 }
