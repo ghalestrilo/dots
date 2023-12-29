@@ -7,7 +7,6 @@ if status is-interactive
     fish_add_path "$HOME/.local/bin"
     fish_add_path /opt/homebrew/Caskroom/google-cloud-sdk//latest/google-cloud-sdk/bin/
     export USE_GKE_GCLOUD_AUTH_PLUGIN=True
-    export OPENAI_KEY="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"
 
     source /opt/homebrew/opt/asdf/libexec/asdf.fish
     alias updbdev="cloud_sql_proxy -instances=\"up-learn-v1:europe-west1:dev-db\"=tcp:localhost:8006"
