@@ -1,22 +1,10 @@
 alias python=python3
 alias pip=pip3
 
-
-
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-export REACT_EDITOR="codium"
-
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 eval $(thefuck --alias)
 export PATH="$HOME/.ghcup/bin:$PATH"
 export PATH="$HOME/.ghcup/bin:$HOME/.ghcup/ghc/8.6.5/bin:$PATH"
-
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Custom Exports
 export SC_REC_DIR="$HOME/.local/share/SuperCollider/Recordings/"
@@ -43,14 +31,6 @@ alias ff="~/.cabal/bin/feedforward 2> ~/err.txt"
 if [ -d $HOME/.config/broot ]; then
 	source $HOME/.config/broot/launcher/bash/br
 fi
-
-# NVM path
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
-# Ganache GUI helper (remember to update version)
-# alias ganache-gui="~/Downloads/software/ganache-2.4.0-linux-x86_64.AppImage"
-alias ganache-gui="~/Downloads/software/ganache-*.AppImage"
 
 alias devjam="tmux new-session -s jam \
   kak '~/art/test.tidal' \; \
@@ -81,7 +61,7 @@ export PATH="$PATH:~/.local/bin"
 
 export JAM_PATH="$HOME/git/pieces"
 
-alias bat=batcat
+# alias bat=batcat
 alias lg=lazygit
 alias tidal="ghci -ghci-script $TIDAL_BOOT_PATH"
 
@@ -89,7 +69,6 @@ alias tidal="ghci -ghci-script $TIDAL_BOOT_PATH"
 export LD_LIBRARY_PATH=/usr/lib/cuda/lib64:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/lib/cuda/include:$LD_LIBRARY_PATH
 
-eval "$(starship init zsh)"
 
 source /home/ghales/.config/broot/launcher/bash/br
 . /usr/local/opt/asdf/libexec/asdf.sh
@@ -118,3 +97,10 @@ alias updbprod="cloud_sql_proxy -instances=\"up-learn-v1:europe-west1:prod\"=tcp
 
 alias tidal="stack exec ghci -- -ghci-script $TIDAL_BOOT_PATH"
 alias sclang="/Applications/SuperCollider.app/Contents/MacOS/sclang"
+
+# . /opt/homebrew/Cellar/z/1.9/etc/profile.d/z.sh
+# . /opt/homebrew/opt/asdf/libexec/asdf.sh
+eval "$(starship init zsh)"
+source /Users/ghales/.config/broot/launcher/bash/br
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
