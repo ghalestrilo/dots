@@ -97,3 +97,5 @@ alias updbprod="cloud_sql_proxy -instances=\"up-learn-v1:europe-west1:prod\"=tcp
 # . /opt/homebrew/opt/asdf/libexec/asdf.sh
 eval "$(starship init zsh)"
 source /Users/ghales/.config/broot/launcher/bash/br
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
