@@ -42,14 +42,14 @@
     "**/.i3/config": "i3",
     "**/i3/config": "i3"
   },
-  "tidalcycles.bootTidalPath": "/home/lalis/.config/tidal/boot.tidal",
+  "tidalcycles.bootTidalPath": "/Users/admin/git/libtidal/boot.tidal",
   "terminal.integrated.fontFamily": "monospace",
   "editor.tabSize": 2,
   "explorer.confirmDragAndDrop": false,
   "breadcrumbs.enabled": true,
-  "editor.fontFamily": "hasklig",
+  "editor.fontFamily": "Hasklig",
   "editor.fontLigatures": true,
-  "editor.fontSize": 16,
+  "editor.fontSize": 14,
   "terminal.integrated.rendererType": "dom",
   "python.dataScience.askForKernelRestart": false,
   "editor.detectIndentation": false,
@@ -129,7 +129,9 @@
   },
   "emmet.triggerExpansionOnTab": true,
   "elixirLS.fetchDeps": false,
-  "workbench.colorTheme": "Noctis Minimus",
   "editor.guides.indentation": false,
-  "window.zoomLevel": -1
+  "workbench.colorTheme": "Noctis",
+  "tidalcycles.useStackGhci": true,
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "window.zoomLevel": -2
 }
