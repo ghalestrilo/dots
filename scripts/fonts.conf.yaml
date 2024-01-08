@@ -1,3 +1,0 @@
-- shell:
-  - ["if [ ! -d /usr/share/fonts/opentype/hasklig ]; then sh common/hasklig.sh; fi", Installing Hasklig]
-
