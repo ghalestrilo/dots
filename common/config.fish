@@ -1,25 +1,28 @@
 # set asdf completions
 # source /opt/homebrew/opt/asdf/libexec/asdf.fish
 # mkdir -p ~/.config/fish/completions; ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
+export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.config/gcloud/application_default_credentials.json
 if status is-interactive
     # Commands to run in interactive sessions can go here
     fish_add_path "$HOME/.cargo/bin"
     fish_add_path "$HOME/.local/bin"
     fish_add_path /opt/homebrew/Caskroom/google-cloud-sdk//latest/google-cloud-sdk/bin/
     export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+    export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.config/gcloud/application_default_credentials.json
 
     source /opt/homebrew/opt/asdf/libexec/asdf.fish
-    alias updbdev="cloud_sql_proxy -instances=\"up-learn-v1:europe-west1:dev-db\"=tcp:localhost:8006"
-    alias updbprod="cloud_sql_proxy -instances=\"up-learn-v1:europe-west1:prod\"=tcp:localhost:8007"
-    alias upbashdev="kubectl -n staging exec -it deployment/up-learn-api bash"
-    alias upbashprod="kubectl -n production exec -it deployment/up-learn-api bash"
-    alias upclidev="kubectl -n staging exec -it deployment/up-learn-api bin/up_learn_api remote"
-    alias upcliprod="kubectl -n production exec -it deployment/up-learn-api bin/up_learn_api remote"
-    alias reload="source ~/.config/fish/config.fish"
-    alias myip="dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com"
 
-    alias sshv1="gcloud compute ssh v1-up-learn"
-    alias ls=exa
+    # Elixir commands
+    alias mf="mix test --failed --trace"
+    alias mdg="mix deps.get"
+    alias mdc="mix deps.compile"
+    alias mps="mix phx.server"
+    alias mt="mix test"
+    alias mts="mix test --stale"
+    alias ips="iex -S mix phx.server"
+    alias wget="http --download"
+    alias ls="exa --long --header --icons --git"
+    alias lss=exa
 
     # Set up Homebrew
     eval (/opt/homebrew/bin/brew shellenv)
