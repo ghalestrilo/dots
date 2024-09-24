@@ -12,6 +12,10 @@ if status is-interactive
 
     source /opt/homebrew/opt/asdf/libexec/asdf.fish
 
+    alias vault="cd /Users/ghales/Library/CloudStorage/GoogleDrive-ghalestrilo@gmail.com/My\ Drive/me/docs/main"
+    alias reload="source ~/.config/fish/config.fish"
+    alias theme="kitty +kitten themes"
+
     # Elixir commands
     alias mf="mix test --failed --trace"
     alias mdg="mix deps.get"
