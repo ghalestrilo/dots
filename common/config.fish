@@ -11,6 +11,7 @@ if status is-interactive
     export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.config/gcloud/application_default_credentials.json
 
     source /opt/homebrew/opt/asdf/libexec/asdf.fish
+    source ~/git/dots/common/fly.fish
 
     alias vault="cd /Users/ghales/Library/CloudStorage/GoogleDrive-ghalestrilo@gmail.com/My\ Drive/me/docs/main"
     alias reload="source ~/.config/fish/config.fish"
