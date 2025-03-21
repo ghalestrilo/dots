@@ -26,8 +26,8 @@ if status is-interactive
     alias mts="mix test --stale"
     alias ips="iex -S mix phx.server"
     alias wget="http --download"
-    alias ls="exa --long --header --icons --git"
-    alias lss=exa
+    alias ls="eza --long --header --icons --git"
+    alias lss=eza
 
     # Set up Homebrew
     eval (/opt/homebrew/bin/brew shellenv)
@@ -36,5 +36,6 @@ if status is-interactive
     thefuck --alias | source
 
     # Start shell with Starship
+    eval "$(mise activate --shims fish)" 
     starship init fish | source
 end
