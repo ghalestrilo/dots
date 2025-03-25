@@ -1,5 +1,3 @@
 [tools]
-awscli = "latest"
 eza = "latest"
-gh = "latest"
 node = "22"

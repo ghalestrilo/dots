@@ -29,6 +29,8 @@ if status is-interactive
     alias ls="eza --long --header --icons --git"
     alias lss=eza
 
+    alias ghostty-config="cursor $HOME/Library/Application\ Support/com.mitchellh.ghostty/config"
+
     # Set up Homebrew
     eval (/opt/homebrew/bin/brew shellenv)
 
