@@ -2,4 +2,5 @@
 awscli = "latest"
 eza = "latest"
 gh = "latest"
+go = "latest"
 node = "22"

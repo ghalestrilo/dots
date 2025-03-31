@@ -12,6 +12,7 @@ if status is-interactive
     export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.config/gcloud/application_default_credentials.json
 
     source ~/git/dots/common/fly.fish
+    source ~/git/dots/scripts/bend-aliases.fish
 
     alias vault="cd /Users/ghales/Library/CloudStorage/GoogleDrive-ghalestrilo@gmail.com/My\ Drive/me/docs/main"
     alias reload="source ~/.config/fish/config.fish"
@@ -26,8 +27,9 @@ if status is-interactive
     alias mts="mix test --stale"
     alias ips="iex -S mix phx.server"
     alias wget="http --download"
+    alias lss=ls
     alias ls="eza --long --header --icons --git"
-    alias lss=eza
+    alias glom="git pull origin main --no-rebase"
 
     alias ghostty-config="cursor $HOME/Library/Application\ Support/com.mitchellh.ghostty/config"
 
@@ -39,4 +41,5 @@ if status is-interactive
     starship init fish | source
 
     fish_add_path "$HOME/.gem/bin"
+    fish_add_path "$HOME/go/bin"
 end

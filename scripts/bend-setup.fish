@@ -32,7 +32,11 @@ mise reshim
 bender-go update -i testing 
 
 
-# AWS
+echo "=== Configuring AWS SSO ==="
+if ! aws sts get-caller-identity  --profile thales-bh >/dev/null 2>&1
+  echo "Please find the instructions here: https://bendhealth.atlassian.net/wiki/spaces/DEVOPS/pages/178814977/New+AWS+CLI+Setup"
+  aws configure sso
+end
 aws sso login
 
 # Run docker in detached mode for Redis and Postgres
