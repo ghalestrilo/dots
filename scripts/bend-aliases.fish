@@ -1,26 +1,17 @@
-alias ws='cd /Users/douglasmuraoka/workspace'
-alias p='git pull'
-alias gis='git status'
-alias gic='git cola'
-alias gil='git log --graph --oneline'
+export BEND_DIR="~/git/bend"
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+export DISABLE_SPRING=true
+
 alias hosts='sudo vim /etc/hosts'
-alias c='git checkout'
-alias reload='source ~/.zshrc'
-alias gp='git push'
-alias y='yarn'
-alias rc='subl ~/.zshrc'
 alias pack='cat package.json'
-alias push-new='git push origin $(git branch --show-current) -u'
-alias save='git stash save'
-alias pop='git stash pop'
 
 alias k="kubectl"
 alias b="bender-go"
-alias api='cd ~/workspace/Bend-API && mise use ruby@3.2.2'
-alias ui='cd ~/workspace/Bend-API/ui/ehr'
-alias mp='cd ~/workspace/Bend-API/ui/member'
-alias pp='cd ~/workspace/Bend-API/ui/partner'
-alias reg='cd ~/workspace/Bend-API/testing/regressions'
+alias api='cd $BEND_DIR/Bend-API && mise use ruby@3.2.2'
+alias ui='cd $BEND_DIR/Bend-API/ui/ehr'
+alias mp='cd $BEND_DIR/Bend-API/ui/member'
+alias pp='cd $BEND_DIR/Bend-API/ui/partner'
+alias reg='cd $BEND_DIR/Bend-API/testing/regressions'
 alias rs='api && cd applications/bend_health && clear && bundle exec rspec --color'
 alias uptest="b update -i testing"
 alias upstag="b update -i staging"
@@ -37,28 +28,61 @@ alias t9="b -e testing-nine"
 alias t10="b -e testing-ten"
 alias stag="b -e staging"
 alias prod="b -e production"
+alias pgstart="pg_ctl -D $HOME/.pgdata -l logfile start"
 
 alias rapi='api && cd ./applications/bend_health && rails s -p 21003'
 alias rui='ui && y start:no-auth'
 
-alias play='APP_ENV=staging yarn run test tests/referrals.spec.ts --reporter=line --trace on --ui'
-
-function play
-  APP_ENV="$argv[0]" yarn run test tests/referrals.spec.ts --reporter=line --trace on --ui
+function testplay
+  if [ -z "$argv[1]" ]
+    echo "Usage: testplay <environment> <test>"
+    return 1
+  end
+  echo "Testing playwright suite against $argv[1]"
+  APP_ENV="$argv[1]" yarn --cwd $HOME/git/bend/Bend-API/testing/regressions/ run test $argv[2] --reporter=line --trace on --ui
 end
 
+function reset-local-db
+  rails db:schema:load
+  rails runner "DynamicConfigImportJob.perform_now(truncate: true, fail_silently: false, clear_redis_cache: false, sync_accounts: true)"
+
+  rails runner "~/git/dots/scripts/reset-local-db.rb"
+  rails data:migrate
+end
+
+function sync-with-main 
+  git fetch origin main
+  git checkout $argv[1]
+  git pull origin main --no-rebase
+  git add --all
+  git commit -m "Sync with main"
+  git push
+end
+
+alias teste2e="APP_ENV=testing-eight PW_GLOBAL_TIMEOUT=240000 yarn run test --reporter=line --trace on --ui"
+
 function gh-redeploy
-  if [ -z "$argv[0]" ]
+  if [ -z "$argv[1]" ]
     echo "Usage: gh-redeploy <environment>"
     return 1 
   end
-  gh pr edit $(git branch --show-current) --add-label deploy-$argv[0]
+  gh pr edit $(git branch --show-current) --add-label deploy-$argv[1]
 end
 
 function gh-regressions
-  if [ -z "$argv[0]" ]
+  if [ -z "$argv[1]" ]
     echo "Usage: gh-regressions <environment>"
     return 1
   end
   gh pr edit $(git branch --show-current) --add-label regressions
+end
+
+
+# Let's update this alias to become a function. The first and only argument will replace "testing-five" in the string.
+function creds
+  if [ -z "$argv[1]" ]
+    echo "Usage: creds <environment>"
+    return 1
+  end
+  kubectl exec -i svc/api-dev-$argv[1] -- env | grep RAILS_DB
 end
