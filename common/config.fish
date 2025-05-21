@@ -37,7 +37,7 @@ if status is-interactive
     eval (/opt/homebrew/bin/brew shellenv)
 
     # Start shell with Starship
-    eval "$(mise activate --shims fish)" 
+    if command -v mise >/dev/null 2>&1; eval "$(mise activate --shims fish)"; end
     starship init fish | source
 
     fish_add_path "$HOME/.gem/bin"
