@@ -12,7 +12,11 @@ if status is-interactive
     export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.config/gcloud/application_default_credentials.json
 
     source ~/git/dots/common/fly.fish
-    source ~/git/dots/scripts/bend-aliases.fish
+    
+    if [ -d ~/git/bend ]
+        echo "Bend directory found. Importing bend-aliases.fish"
+        source ~/git/dots/scripts/bend-aliases.fish
+    end
 
     alias vault="cd /Users/ghales/Library/CloudStorage/GoogleDrive-ghalestrilo@gmail.com/My\ Drive/me/docs/main"
     alias reload="source ~/.config/fish/config.fish"

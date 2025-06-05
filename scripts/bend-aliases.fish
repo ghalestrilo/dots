@@ -28,10 +28,18 @@ alias t9="b -e testing-nine"
 alias t10="b -e testing-ten"
 alias stag="b -e staging"
 alias prod="b -e production"
-alias pgstart="pg_ctl -D $HOME/.pgdata -l logfile start"
+alias pgstart="pg_ctl -D $HOME/.pgdata -l $HOME/.pglogfile start"
+alias pgstop="pg_ctl -D $HOME/.pgdata stop"
 
 alias rapi='api && cd ./applications/bend_health && rails s -p 21003'
 alias rui='ui && y start:no-auth'
+
+alias cdapi='cd $BEND_DIR/Bend-API/applications/bend_health'
+alias cdreg='cd $BEND_DIR/Bend-API/testing/regressions'
+alias cdcommon='cd $BEND_DIR/Bend-API/common'
+alias cdehr='cd $BEND_DIR/Bend-API/ui/ehr'
+alias cdmember='cd $BEND_DIR/Bend-API/ui/member'
+alias cdpartner='cd $BEND_DIR/Bend-API/ui/partner'
 
 function testplay
   if [ -z "$argv[1]" ]
