@@ -1,0 +1,1 @@
+# alias all-to-mp3="for file in ./*; do ffmpeg -i $file -c:a libmp3lame -q:a 4 $file.mp3; done"

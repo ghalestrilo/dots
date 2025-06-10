@@ -10,8 +10,10 @@ if status is-interactive
     # fish_add_path /opt/homebrew/Caskroom/google-cloud-sdk//latest/google-cloud-sdk/bin/
     export USE_GKE_GCLOUD_AUTH_PLUGIN=True
     export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.config/gcloud/application_default_credentials.json
+    export EDITOR=hx
 
     source ~/git/dots/common/fly.fish
+    source ~/git/dots/scripts/functions.fish
     source ~/git/dots/scripts/bend-aliases.fish
 
     alias vault="cd /Users/ghales/Library/CloudStorage/GoogleDrive-ghalestrilo@gmail.com/My\ Drive/me/docs/main"
@@ -28,7 +30,7 @@ if status is-interactive
     alias ips="iex -S mix phx.server"
     alias wget="http --download"
     alias lss=ls
-    alias ls="eza --long --header --icons --git"
+    alias lsa="eza --long --header --icons --git"
     alias glom="git pull origin main --no-rebase"
 
     alias ghostty-config="cursor $HOME/Library/Application\ Support/com.mitchellh.ghostty/config"
