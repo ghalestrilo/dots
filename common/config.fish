@@ -30,10 +30,18 @@ if status is-interactive
     alias ips="iex -S mix phx.server"
     alias wget="http --download"
     alias lss=ls
-    alias lsa="eza --long --header --icons --git"
+    alias lsa="exa --long --header --icons --git"
     alias glom="git pull origin main --no-rebase"
 
-    alias ghostty-config="cursor $HOME/Library/Application\ Support/com.mitchellh.ghostty/config"
+    # docker compose commands
+    alias dbu="docker-compose up db"
+    alias dbud="docker-compose up -d db"
+    alias dbd="docker-compose down"
+
+
+
+    alias config-ghostty="cursor $HOME/Library/Application\ Support/com.mitchellh.ghostty/config"
+    alias config="config-ghostty"
 
     # Set up Homebrew
     eval (/opt/homebrew/bin/brew shellenv)
