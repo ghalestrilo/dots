@@ -14,7 +14,7 @@ $character"""
 style = "blue"
 
 [character]
-success_symbol = "[•](purple)"
+success_symbol = "[•](green)"
 error_symbol = "[•](red)"
 
 [git_branch]
@@ -43,4 +43,3 @@ style = "yellow"
 [python]
 format = "[$virtualenv]($style) "
 style = "bright-black"
-
