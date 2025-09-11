@@ -4,7 +4,7 @@
 export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.config/gcloud/application_default_credentials.json
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    source /opt/homebrew/opt/asdf/libexec/asdf.fish
+    # source /opt/homebrew/opt/asdf/libexec/asdf.fish
     fish_add_path "$HOME/.cargo/bin"
     fish_add_path "$HOME/.local/bin"
     # fish_add_path /opt/homebrew/Caskroom/google-cloud-sdk//latest/google-cloud-sdk/bin/

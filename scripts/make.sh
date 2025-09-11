@@ -1,4 +1,7 @@
-mise install starship bat direnv flyctl erlang elixir gleam elixir-ls fd go helix lazygit lsd navi prettier node yarn
+
+mise install erlang
+mise use -g erlang@latest
+mise install starship bat direnv flyctl elixir gleam elixir-ls fd go helix lazygit lsd navi prettier node yarn
 
 install fisher
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
