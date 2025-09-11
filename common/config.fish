@@ -12,7 +12,7 @@ if status is-interactive
     export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.config/gcloud/application_default_credentials.json
 
     source ~/git/dots/common/fly.fish
-    
+
     if [ -d ~/git/bend ]
         echo "Bend directory found. Importing bend-aliases.fish"
         source ~/git/dots/scripts/bend-aliases.fish
@@ -38,10 +38,12 @@ if status is-interactive
     alias ghostty-config="cursor $HOME/Library/Application\ Support/com.mitchellh.ghostty/config"
 
     # Set up Homebrew
-    eval (/opt/homebrew/bin/brew shellenv)
+    # eval (/opt/homebrew/bin/brew shellenv)
 
     # Start shell with Starship
-    eval "$(mise activate --shims fish)" 
+    eval "$(mise activate --shims fish)"
+
+    mise use -g starship@latest
     starship init fish | source
 
     fish_add_path "$HOME/.gem/bin"
