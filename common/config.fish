@@ -2,6 +2,7 @@
 # source /opt/homebrew/opt/asdf/libexec/asdf.fish
 # mkdir -p ~/.config/fish/completions; ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
 export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.config/gcloud/application_default_credentials.json
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
     # source /opt/homebrew/opt/asdf/libexec/asdf.fish
@@ -13,9 +14,9 @@ if status is-interactive
 
     source ~/git/dots/common/fly.fish
 
-    if [ -d ~/git/bend ]
+    if [ -d ~/git/tg ]
         echo "Bend directory found. Importing bend-aliases.fish"
-        source ~/git/dots/scripts/bend-aliases.fish
+        source ~/git/dots/scripts/tg-aliases.fish
     end
 
     alias vault="cd /Users/ghales/Library/CloudStorage/GoogleDrive-ghalestrilo@gmail.com/My\ Drive/me/docs/main"
@@ -33,6 +34,7 @@ if status is-interactive
     alias wget="http --download"
     alias lss=ls
     alias ls="eza --long --header --icons --git"
+    alias lg=lazygit
     alias glom="git pull origin main --no-rebase"
 
     alias ghostty-config="$EDITOR $HOME/Library/Application\ Support/com.mitchellh.ghostty/config"
