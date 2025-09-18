@@ -35,17 +35,17 @@ if status is-interactive
     alias ls="eza --long --header --icons --git"
     alias glom="git pull origin main --no-rebase"
 
-    alias ghostty-config="cursor $HOME/Library/Application\ Support/com.mitchellh.ghostty/config"
+    alias ghostty-config="$EDITOR $HOME/Library/Application\ Support/com.mitchellh.ghostty/config"
 
     # Set up Homebrew
     # eval (/opt/homebrew/bin/brew shellenv)
 
-    # Start shell with Starship
+    # Hook programs
     eval "$(mise activate --shims fish)"
-
-    mise use -g starship@latest
     starship init fish | source
+    direnv hook fish | source
 
+    # Additional scripts
     fish_add_path "$HOME/.gem/bin"
     fish_add_path "$HOME/go/bin"
 end
