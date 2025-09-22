@@ -15,7 +15,7 @@ if status is-interactive
     source ~/git/dots/common/fly.fish
 
     if [ -d ~/git/tg ]
-        echo "Bend directory found. Importing bend-aliases.fish"
+        echo "TG directory found. Importing tg-aliases.fish"
         source ~/git/dots/scripts/tg-aliases.fish
     end
 
