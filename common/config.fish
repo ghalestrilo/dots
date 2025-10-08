@@ -19,9 +19,11 @@ if status is-interactive
         source ~/git/dots/scripts/tg-aliases.fish
     end
 
+
     alias vault="cd /Users/ghales/Library/CloudStorage/GoogleDrive-ghalestrilo@gmail.com/My\ Drive/me/docs/main"
     alias reload="source ~/.config/fish/config.fish"
     alias theme="kitty +kitten themes"
+
 
     # Elixir commands
     alias mf="mix test --failed --trace"
@@ -50,4 +52,7 @@ if status is-interactive
     # Additional scripts
     fish_add_path "$HOME/.gem/bin"
     fish_add_path "$HOME/go/bin"
+
+    # Import common functions
+    source ~/git/dots/common/functions.fish
 end
