@@ -19,9 +19,11 @@ if status is-interactive
         source ~/git/dots/scripts/tg-aliases.fish
     end
 
+    # Common commands
     alias vault="cd /Users/ghales/Library/CloudStorage/GoogleDrive-ghalestrilo@gmail.com/My\ Drive/me/docs/main"
     alias reload="source ~/.config/fish/config.fish"
     alias theme="kitty +kitten themes"
+    alias da="direnv allow ."
 
     # Elixir commands
     alias mf="mix test --failed --trace"

@@ -2,7 +2,7 @@ mise install erlang
 mise use -g erlang@latest
 
 # Define array of tools to install and use
-set tools starship bat direnv flyctl elixir gleam elixir-ls fd go helix lazygit lsd prettier node yarn eza fzf
+set tools starship bat direnv flyctl elixir gleam elixir-ls fd go helix lazygit lsd prettier node yarn eza fzf docker-compose
 
 # Install all tools at once
 mise install $tools
@@ -26,3 +26,9 @@ ln  common/ghostty/config $HOME/Library/Application\ Support/com.mitchellh.ghost
 
 
 fisher install jorgebucaran/autopair.fish patrickf1/fzf.fish jhillyerd/plugin-git halostatue/fish-elixir
+
+
+if [ -d ~/git/tg ]
+    echo "TG directory found. Importing tg-make.fish"
+    source ~/git/dots/scripts/tg-make.fish
+end
