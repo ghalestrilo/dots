@@ -31,7 +31,7 @@ ln  common/ghostty/config $HOME/Library/Application\ Support/com.mitchellh.ghost
 mkdir -p $HOME/.config/crush/
 ln  common/crush.json $HOME/.config/crush/crush.json
 
-# Link VSCodium configs
-ln -s $HOME/git/dots/.vscode $HOME/.vscode
+# Link VSCodium configs - FIXME: don't link the folder like that, just settings and keybindings
+# ln -s $HOME/git/dots/.vscode $HOME/.vscode
 
 fisher install jorgebucaran/autopair.fish patrickf1/fzf.fish jhillyerd/plugin-git halostatue/fish-elixir
