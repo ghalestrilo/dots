@@ -1,7 +1,4 @@
 # Common fish functions
-
-echo "hi"
-
 function epub_to_mobi
     # Translate all .epub files in the current directory to .mobi using ebook-convert
     for epub_file in *.epub
