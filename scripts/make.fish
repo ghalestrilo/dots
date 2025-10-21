@@ -1,3 +1,8 @@
+# Setup completions for mise
+mise use -g usage
+mise completion fish > ~/.config/fish/completions/mise.fish
+
+# Setup erlang (required for installing elixir)
 mise install erlang
 mise use -g erlang@latest
 
@@ -23,6 +28,10 @@ ln  common/code/keybindings.json $HOME/Library/Application\ Support/Cursor/User/
 ln  common/code/settings.json $HOME/Library/Application\ Support/Cursor/User/settings.json
 ln  common/ghostty/config $HOME/Library/Application\ Support/com.mitchellh.ghostty/config
 
+mkdir -p $HOME/.config/crush/
+ln  common/crush.json $HOME/.config/crush/crush.json
 
+# Link VSCodium configs
+ln -s $HOME/git/dots/.vscode $HOME/.vscode
 
 fisher install jorgebucaran/autopair.fish patrickf1/fzf.fish jhillyerd/plugin-git halostatue/fish-elixir
