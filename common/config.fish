@@ -3,6 +3,12 @@
 # mkdir -p ~/.config/fish/completions; ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
 export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.config/gcloud/application_default_credentials.json
 
+export DISABLE_TELEMETRY=1
+export DISABLE_ERROR_REPORTING=1
+export DISABLE_BUG_COMMAND=1
+export CLAUDE_CODE_ENABLE_TELEMETRY=0
+export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=true
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
     # source /opt/homebrew/opt/asdf/libexec/asdf.fish
