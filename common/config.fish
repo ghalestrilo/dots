@@ -58,4 +58,5 @@ if status is-interactive
 
     # Import common functions
     source ~/git/dots/common/functions.fish
+    starship init fish | source
 end
