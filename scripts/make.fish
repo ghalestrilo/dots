@@ -1,4 +1,5 @@
 # Setup completions for mise
+echo '~/.local/bin/mise activate fish | source' >> ~/.config/fish/config.fish
 mise use -g usage
 mise completion fish > ~/.config/fish/completions/mise.fish
 
