@@ -48,4 +48,4 @@ keybind = cmd+alt+left=ignore
 keybind = cmd+alt+right=ignore
 keybind = global:cmd+backquote=toggle_quick_terminal
 keybind = cmd+backquote=toggle_quick_terminal
-keybind = global:cmd+o=copy_to_clipboard
+# keybind = global:cmd+shift+o=copy_to_clipboard
